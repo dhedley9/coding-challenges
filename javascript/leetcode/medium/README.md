@@ -7,3 +7,7 @@
 ## 59. Spiral Matrix II (Generator)
 
 [https://leetcode.com/problems/spiral-matrix-ii](https://leetcode.com/problems/spiral-matrix-ii)
+
+## 59. Longest Consecutive Sequence
+
+[https://leetcode.com/problems/longest-consecutive-sequence/](https://leetcode.com/problems/longest-consecutive-sequence/)
