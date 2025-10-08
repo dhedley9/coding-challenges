@@ -97,9 +97,50 @@ var longestConsecutive = function(nums) {
     return Math.max( ...chainLengths );
 };
 
+var longestConsecutive2 = function( nums ) {
+
+    let numbers = {};
+
+    for( let i = 0; i < nums.length; i++ ) {
+        numbers[nums[i]] = true;
+    }
+
+    let longestStreak = 0;
+
+    for( let num in numbers ) {
+
+        let isStart = !( ( num - 1 ) in numbers );
+
+        if( isStart ) {
+
+            let currentStreak = 0;
+            let counter = num;
+
+            while( counter in numbers ) {
+
+                currentStreak++;
+                counter++;
+            }
+
+            if( currentStreak > longestStreak ) {
+                longestStreak = currentStreak;
+            }
+        }
+    }
+
+    return longestStreak;
+}
+
 console.log( longestConsecutive( [100,4,200,1,3,2] ) );
 console.log( longestConsecutive( [0,3,7,2,5,8,4,6,0,1] ) );
 console.log( longestConsecutive( [1,0,1,2] ) );
 console.log( longestConsecutive( [] ) );
 console.log( longestConsecutive( [1] ) );
 console.log( longestConsecutive( [-6,-9,8,-8,-1,-3,-6,8,-9,-1,-4,-8,-5,0,1,6,-8,-5,-7,8,-2,-8,4,5,-5,-1,-5] ) );
+
+console.log( longestConsecutive2( [100,4,200,1,3,2] ) );
+console.log( longestConsecutive2( [0,3,7,2,5,8,4,6,0,1] ) );
+console.log( longestConsecutive2( [1,0,1,2] ) );
+console.log( longestConsecutive2( [] ) );
+console.log( longestConsecutive2( [1] ) );
+console.log( longestConsecutive2( [-6,-9,8,-8,-1,-3,-6,8,-9,-1,-4,-8,-5,0,1,6,-8,-5,-7,8,-2,-8,4,5,-5,-1,-5] ) );
