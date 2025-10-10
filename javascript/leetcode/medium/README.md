@@ -1,5 +1,9 @@
 # Leetcode - Medium
 
+## 48. Rotate Image
+
+[https://leetcode.com/problems/rotate-image/](https://leetcode.com/problems/rotate-image/)
+
 ## 54. Spiral Matrix
 
 [https://leetcode.com/problems/spiral-matrix/](https://leetcode.com/problems/spiral-matrix/)
