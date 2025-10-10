@@ -10,12 +10,7 @@ var rotate = function(matrix) {
 
         for( let i = 0; i < n; i++ ) {
 
-            // console.log( i );
-
-
             let num = matrix[r].shift();
-
-            console.log( num );
 
             matrix[i].push( num );
         }
