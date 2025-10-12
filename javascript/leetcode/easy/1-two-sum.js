@@ -54,12 +54,36 @@ var twoSumBetter = function( nums, target ) {
     return positions;
 }
 
+var twoSumEvenBetter = function( nums, target ) {
+
+    let positions = {};
+    let results   = [];
+
+    for( let i = 0; i < nums.length; i++ ) {
+
+        let num  = nums[i];
+        let diff = target - num;
+
+        if( diff in positions ) {
+            results = [ positions[diff], i ];
+
+            return results;
+        }
+
+        positions[num] = i;
+    }
+
+    return results;
+}
+
 console.log( twoSum( [2,7,11,15], 9 ) );
 console.log( twoSumBetter( [2,7,11,15], 9 ) );
+console.log( twoSumEvenBetter( [2,7,11,15], 9 ) );
 
 // [0,1]
 
 console.log( twoSum( [3,2,4], 6 ) );
 console.log( twoSumBetter( [3,2,4], 6 ) );
+console.log( twoSumEvenBetter( [3,2,4], 6 ) );
 
 // [1,2]
