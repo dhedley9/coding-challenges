@@ -11,25 +11,6 @@ function ListNode(val, next) {
     this.next = (next===undefined ? null : next)
 }
 
-function arrayToLinkedList( arr ) {
-
-    let element = new ListNode( 0 );
-    let current = element;
-
-    for( let i = 0; i < arr.length; i++ ) {
-
-        current.val  = arr[i];
-
-        if( i !== arr.length - 1 ) {
-            current.next = new ListNode( 0 );
-
-            current = current.next;
-        }
-    }
-
-    return element;
-}
-
 /**
  * @param {ListNode} l1
  * @param {ListNode} l2
@@ -71,7 +52,8 @@ var addTwoNumbers = function(l1, l2) {
 
     return original;
 
-
+    // Original attempt below
+    // Failed on larger numbers due to .toString() converting standard form literally
     
     // let num1 = '';
     // let num2 = '';
@@ -127,6 +109,12 @@ var addTwoNumbers = function(l1, l2) {
     // return original;
 };
 
+/**
+ * Wrapper not part of the actual solution, but to emulate the class that exists on Leetcode
+ * @param {array} l1 
+ * @param {array} l2 
+ * @returns {ListNode}
+ */
 var addTwoNumbersWrap = function( l1, l2 ) {
 
     l1 = arrayToLinkedList( l1 );
@@ -134,6 +122,30 @@ var addTwoNumbersWrap = function( l1, l2 ) {
 
     return addTwoNumbers( l1, l2 );
 } 
+
+/**
+ * Helper not part of the actual solution, but to enable testing outside of Leetcode
+ * @param {*} arr 
+ * @returns 
+ */
+function arrayToLinkedList( arr ) {
+
+    let element = new ListNode( 0 );
+    let current = element;
+
+    for( let i = 0; i < arr.length; i++ ) {
+
+        current.val  = arr[i];
+
+        if( i !== arr.length - 1 ) {
+            current.next = new ListNode( 0 );
+
+            current = current.next;
+        }
+    }
+
+    return element;
+}
 
 
 console.log( addTwoNumbersWrap( [2,4,3], [5,6,4] ) );
